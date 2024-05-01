@@ -1,10 +1,11 @@
+import { useContext, useState } from "react";
 import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import apiRequest from "../../lib/apiRequest";
 
 function Login() {
   const [error, setError] = useState("");
-  const [IsLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -13,18 +14,21 @@ function Login() {
 
     e.preventDefault()
     setIsLoading(true)
+    setError("")
     const username = formData.get("username");
-    const email = formData.get("email");
     const password = formData.get("password");
 
     try {
 
-      const res = await axios.post("http://localhost:8800/api/auth/register",{
-        username,email,password
+      const res = await apiRequest.post("/auth/login", {
+        username,
+        password,
       });
 
-      navigate("/login")
-    }catch(err){
+      localStorage.setItem("user", JSON.stringify(res.data))
+
+      navigate("/");
+    } catch (err) {
       console.log(err)
       setError(err.response.data.message)
     } finally {
