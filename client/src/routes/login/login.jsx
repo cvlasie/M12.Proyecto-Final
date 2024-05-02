@@ -13,11 +13,11 @@ function Login() {
   const navigate = useNavigate();
 
   const handleSumbit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
     const formData = new FormData(e.target);
 
-    e.preventDefault()
-    setIsLoading(true)
-    setError("")
     const username = formData.get("username");
     const password = formData.get("password");
 
