@@ -2,26 +2,26 @@ import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
 import "./profilePage.scss";
 import apiRequest from "../../lib/apiRequest";
-import { Await, useNavigate, Link, useLoaderData } from "react-router-dom";
+import { Await, Link, useLoaderData, useNavigate } from "react-router-dom";
 import { Suspense, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 function ProfilePage() {
   const data = useLoaderData();
 
-  const { updateUser, currentUser } = useContext(AuthContext)
+  const { updateUser, currentUser } = useContext(AuthContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
-      await apiRequest.post("/auth/logout")
-      updateUser(null)
-      navigate("/")
+      await apiRequest.post("/auth/logout");
+      updateUser(null);
+      navigate("/");
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
   return (
     <div className="profilePage">
       <div className="details">
