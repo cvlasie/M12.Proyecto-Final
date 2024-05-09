@@ -35,9 +35,9 @@ export const getChats = async (req, res) => {
   }
 };
 
-
 export const getChat = async (req, res) => {
   const tokenUserId = req.userId;
+
   try {
     const chat = await prisma.chat.findUnique({
       where: {

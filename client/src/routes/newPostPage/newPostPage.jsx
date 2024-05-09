@@ -7,12 +7,13 @@ import UploadWidget from "../../components/uploadWidget/UploadWidget";
 import { useNavigate } from "react-router-dom";
 
 function NewPostPage() {
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState("");
   const [images, setImages] = useState([]);
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
+
   const navigate = useNavigate()
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const inputs = Object.fromEntries(formData);
@@ -42,10 +43,10 @@ function NewPostPage() {
           bus: parseInt(inputs.bus),
           restaurant: parseInt(inputs.restaurant),
         },
-      })
+      });
       navigate("/"+res.data.id)
     } catch (err) {
-      console.log(err)
+      console.log(err);
       setError(error);
     }
   };
@@ -110,6 +111,7 @@ function NewPostPage() {
                 <option value="land">Land</option>
               </select>
             </div>
+
             <div className="item">
               <label htmlFor="utilities">Utilities Policy</label>
               <select name="utilities">

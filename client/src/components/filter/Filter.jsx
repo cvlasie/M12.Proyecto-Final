@@ -11,7 +11,7 @@ function Filter() {
     minPrice: searchParams.get("minPrice") || "",
     maxPrice: searchParams.get("maxPrice") || "",
     bedroom: searchParams.get("bedroom") || "",
-  })
+  });
 
   const handleChange = (e) => {
     setQuery({
