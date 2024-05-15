@@ -9,12 +9,12 @@
       border: 1px solid #999;
       border-bottom: none;
       cursor: pointer;
-      background-color: white;
+      background-color: #CEE3F6;
       text-transform: capitalize;
 
       &.active {
-        background-color: black;
-        color: white;
+        background-color: #007BFF;
+        color: #CEE3F6;
       }
 
       &:first-child {
@@ -74,7 +74,7 @@
 
     a{
       flex: 1;
-      background-color: #fece51;
+      background-color: #007BFF;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -82,7 +82,7 @@
       button {
         border: none;
         cursor: pointer;
-        background-color: #fece51;
+        background-color: #007BFF;
         
         @include sm{
           padding: 10px;
